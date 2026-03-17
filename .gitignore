@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# builds
+dist/
+dist-electron/
+build/
+release/
+
+# landing page
+macclaw-web/
+
+# env files
+.env
+.env.*
+!.env.example
+
+# logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# os
+.DS_Store
+Thumbs.db
