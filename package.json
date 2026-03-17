@@ -1,6 +1,6 @@
 {
   "name": "macclaw",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "main": "./dist/cli/index.js",
   "packageManager": "pnpm@9.10.0",
   "description": "MacClaw is a 100% native CLI autonomous AI agent for macOS. It automates complex GUI and browser workflows with zero electron installation.",
@@ -43,18 +43,19 @@
     "jose": "^6.0.11",
     "kokoro-js": "^1.2.1",
     "sharp": "0.33.3",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "screenshot-desktop": "^1.15.3",
+    "clipboardy": "^5.3.1",
+    "@computer-use/nut-js": "^4.2.0",
+    "jimp": "^0.22.12"
   },
   "devDependencies": {
-    "@computer-use/nut-js": "^4.2.0",
     "@types/node": "^20.19.37",
     "@types/uuid": "^10.0.0",
-    "clipboardy": "^5.3.1",
     "dotenv": "^16.4.7",
     "node-machine-id": "^1.1.12",
     "prettier": "^3.3.2",
     "rimraf": "^6.0.1",
-    "screenshot-desktop": "^1.15.3",
     "tsup": "^8.5.1",
     "tsx": "^4.19.2",
     "typescript": "^5.9.3",
