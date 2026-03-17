@@ -1,88 +1,57 @@
-<picture>
-  <img alt="MacClaw Banner" src="./resources/icon.png" width="150" align="center">
-</picture>
+# MacClaw
 
-<br/>
+> **Complex Workflows. One simple command.**
 
-# MacClaw Desktop
+MacClaw is a 100% native CLI autonomous agent for macOS. It bridges high-level semantic reasoning with pixel-perfect accuracy to automate your desktop and browser without the weight of an Electron app or complex installations.
 
-Welcome to the **MacClaw Desktop** application. This is a powerful, local AI GUI Agent.
+[![NPM Version](https://img.shields.io/npm/v/macclaw.svg)](https://www.npmjs.com/package/macclaw)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Setup Instructions
+## 🚀 Quick Start
 
-MacClaw uses `pnpm` as its package manager and Electron for the desktop wrapper. Follow these steps to get your development environment up and running:
+No heavy installs. Just run via `npx`:
 
-### 1. Prerequisites
-- **Node.js**: Ensure you have Node.js installed (v20+ recommended).
-- **pnpm**: Install pnpm if you don't have it already:
-  ```bash
-  npm install -g pnpm
-  ```
-
-### 2. Install Dependencies
-Navigate to the root directory of the project and install all required packages:
 ```bash
-pnpm install
+npx macclaw chat
 ```
 
-### 3. Start Development Server
-To start the application in development mode with hot-reloading:
-```bash
-pnpm dev
-```
-*(Alternatively, you can use `pnpm debug` to open with the remote debugging port enabled).*
+On your first run, MacClaw will ask for your **OpenRouter API Key** to power its reasoning engine.
 
-### 4. Build for Production
-To package the application into a standalone executable for your platform:
-```bash
-pnpm package
-```
-If you are on an Apple Silicon Mac, you can also build and publish via:
-```bash
-pnpm publish:mac-arm64
-```
+## ✨ Key Features (v0.3.3)
 
-### Configuration
-- Ensure your AI provider keys (like OpenRouter) are set up in the Settings UI inside the app once it launches.
-- Avoid committing `.env` files with actual secrets in them.
+- **Zero Friction**: Run instantly from any terminal. No GUI wrappers or "Install" buttons needed.
+- **Grounding Bridge**: Powered by **UI-TARS 7B**, MacClaw accurately translates model thoughts into physical macOS mouse coordinates.
+- **On-Device Voice (TTS)**: Hear the agent explain its thoughts in real-time with integrated **Kokoro-82M** (100% local, zero-latency).
+- **Robust Bash Engine**: Advanced shell execution with `nullglob` and native `afplay` integration.
+- **Mid-Flight Hotswapping**: Use `/model` or `/key` commands directly in the prompt to switch engines or credentials without restarting.
+
+## 📖 Documentation
+
+For full installation guides, grounding architecture deep-dives, and command references, visit our documentation:
+
+👉 **[MacClaw Docs](https://github.com/heisenbag/macclaw/tree/main/macclaw-web)** (or run the local development server in the `macclaw-web` directory).
+
+## 🛠️ Development
+
+If you'd like to contribute or run the source locally:
+
+1. **Clone the repo**:
+   ```bash
+   git clone https://github.com/heisenbag/macclaw.git
+   cd macclaw
+   ```
+2. **Install dependencies**:
+   ```bash
+   pnpm install
+   ```
+3. **Run in dev mode**:
+   ```bash
+   npm run dev
+   ```
+
+## 🤝 Contributing
+
+This repository is built for the community. We welcome PRs for new slash commands, better grounding mutations, or UI improvements to the docs site.
 
 ---
-*Built with [Electron-Vite](https://electron-vite.org/) and React.*
-# MacClaw & OpenRouter Setup Guide
-
-Welcome to **MacClaw**! This sleek, AI-powered desktop automation agent has been explicitly optimized to work out-of-the-box with OpenRouter, providing seamless access to the Vision-Language Model (VLM) responsible for reasoning about your screen and controlling your computer.
-
-Follow these simple steps to configure MacClaw and start automating.
-
-## Prerequisites
-- You must have MacClaw built and installed (or running in development mode via `npm run dev:macclaw`).
-- You need an active [OpenRouter](https://openrouter.ai/) account.
-
-## Step 1: Obtain Your OpenRouter API Key
-1. Navigate to the [OpenRouter Keys Page](https://openrouter.ai/keys).
-2. Log in (or sign up if you haven't already).
-3. Click on **"Create Key"**.
-4. Give your key a recognizable name (e.g., *MacClaw Agent*).
-5. Copy the generated API key and store it securely. You will need it in the next step.
-
-> Note: To ensure smooth operation, make sure you have sufficient credits on your OpenRouter account, as VLMs can consume a notable amount of tokens when processing high-resolution screenshots of your desktop.
-
-## Step 2: Configure MacClaw
-1. Open the **MacClaw** application. 
-2. Upon its first launch, you will see the modern, glassmorphic central interface.
-3. In the top-right corner of the window (or inside the system tray menu), locate and click on the **Settings Gear Icon** (⚙️).
-4. The settings drawer will slide open. Navigate to the **VLM Settings** step.
-5. In the input field labeled **"OpenRouter API Key"**, paste the API key you copied in Step 1.
-   
-*(Note: Because MacClaw is heavily optimized, the OpenRouter API Base URL and the core reasoning model `bytedance/ui-tars-1.5-7b` are already pre-configured—you only need to provide the key!)*
-
-## Step 3: Start Automating!
-1. Once your key is pasted, simply click on the **"Get Start"** or **"Start"** button at the bottom of the Settings window to save your configuration.
-2. Return to the main chat interface on the Home Screen.
-3. Select your mode (Computer Operator vs Browser Operator) via the central toggle.
-4. Type your instruction, like: *"Open Chrome, navigate to Hacker News, and read the top headline"*
-5. Hit **Enter** and watch MacClaw drive your computer!
-
-## Troubleshooting
-- **Failed to execute instructions or receiving 401 Unauthorized:** Double check that your OpenRouter API key was pasted correctly without any hidden trailing spaces. Verify that your OpenRouter account has positive credit.
-- **MacClaw isn't clicking the right spots:** Make sure MacClaw has the proper macOS Accessibility and Screen Recording permissions granted in your System Settings -> Privacy & Security.
+*Built with ❤️ for macOS power users.*
