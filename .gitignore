@@ -8,7 +8,7 @@ build/
 release/
 
 # landing page
-macclaw-web/
+# macclaw-web/
 
 # env files
 .env

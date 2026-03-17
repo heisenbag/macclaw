@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #6428ff;
+  --color-brand-blue: #2896ff;
+  --color-brand-pink: #c82896;
+  --color-background-dark: #0c0a15d9;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-black/30 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/40;
+  }
+
+  .glass-panel-light {
+    @apply bg-white/5 backdrop-blur-md border border-white/20 shadow-md;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--color-background-dark);
+  color: #fff;
+}
+
+/* Replicate animated mesh gradient from MacClaw Desktop App */
+body {
+  background: radial-gradient(circle at 15% 50%, rgba(100, 40, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 85% 30%, rgba(40, 150, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(200, 40, 150, 0.15), transparent 60%);
+  background-color: var(--color-background-dark);
+  background-size: 150% 150%;
+  animation: gradientMove 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
