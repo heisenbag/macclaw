@@ -30,7 +30,7 @@ On your first run, MacClaw will ask for your **OpenRouter API Key** to power its
 
 For full installation guides, grounding architecture deep-dives, and command references, visit our documentation:
 
-👉 **[MacClaw Docs](https://github.com/heisenbag/macclaw/tree/main/macclaw-web)** (or run the local development server in the `macclaw-web` directory).
+👉 **[macclaw.dev](https://macclaw.dev)**
 
 ## 🛠️ Development
 
