@@ -20,7 +20,8 @@ On your first run, MacClaw will ask for your **OpenRouter API Key** to power its
 ## ✨ Key Features (v0.3.3)
 
 - **Zero Friction**: Run instantly from any terminal. No GUI wrappers or "Install" buttons needed.
-- **Grounding Bridge**: Powered by **UI-TARS 7B**, MacClaw accurately translates model thoughts into physical macOS mouse coordinates.
+- **Intent Reasoning**: Leverage world-class vision models like **Claude 3.5 Sonnet** or **Gemini 2.0 Flash** via OpenRouter for high-level semantic planning.
+- **Grounding Bridge**: Powered by **UI-TARS 7B**, MacClaw accurately translates these model thoughts into physical macOS mouse coordinates.
 - **On-Device Voice (TTS)**: Hear the agent explain its thoughts in real-time with integrated **Kokoro-82M** (100% local, zero-latency).
 - **Robust Bash Engine**: Advanced shell execution with `nullglob` and native `afplay` integration.
 - **Mid-Flight Hotswapping**: Use `/model` or `/key` commands directly in the prompt to switch engines or credentials without restarting.
