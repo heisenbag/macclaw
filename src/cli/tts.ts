@@ -30,17 +30,43 @@ export class KokoroSpeaker {
         return KokoroSpeaker.instance;
     }
 
+    private async asyncExists(p: string): Promise<boolean> {
+        const fs = await import('fs/promises');
+        try {
+            await fs.access(p);
+            return true;
+        } catch {
+            return false;
+        }
+    }
+
     private async load(): Promise<void> {
         if (this.tts) return;
         if (this.loadPromise) return this.loadPromise;
 
         this.loadPromise = (async () => {
             const { KokoroTTS } = await import('kokoro-js');
-            console.log('\n\x1b[35m[TTS] Loading Kokoro model (first run downloads ~300MB)...\x1b[0m\n');
-            this.tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', {
-                dtype: 'q8',  // Quantized 8-bit — fast and high quality
-                device: 'cpu',
-            });
+            const path = await import('path');
+
+            // Try to find bundled models relative to the bundle location
+            // Dist: node_modules/macclaw/dist/cli/index.js -> ../../models
+            // Dev: src/cli/tts.ts -> ../../models
+            const localModelPath = path.resolve(__dirname, '../../models');
+            const hasLocalModels = await this.asyncExists(localModelPath);
+
+            if (hasLocalModels) {
+                console.log('\n\x1b[35m[TTS] Loading bundled Kokoro model...\x1b[0m\n');
+                this.tts = await KokoroTTS.from_pretrained(localModelPath, {
+                    dtype: 'q8',
+                    device: 'cpu',
+                });
+            } else {
+                console.log('\n\x1b[35m[TTS] Bundled model not found. Downloading (~300MB)...\x1b[0m\n');
+                this.tts = await KokoroTTS.from_pretrained('onnx-community/Kokoro-82M-v1.0-ONNX', {
+                    dtype: 'q8',
+                    device: 'cpu',
+                });
+            }
             console.log('\x1b[35m[TTS] Ready.\x1b[0m');
         })();
 

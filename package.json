@@ -1,6 +1,6 @@
 {
   "name": "macclaw",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "./dist/cli/index.js",
   "packageManager": "pnpm@9.10.0",
   "description": "MacClaw is a 100% native CLI autonomous AI agent for macOS. It automates complex GUI and browser workflows with zero electron installation.",
@@ -20,7 +20,8 @@
   "files": [
     "dist",
     "README.md",
-    "scripts/patch-sdk.sh"
+    "scripts/patch-sdk.sh",
+    "models"
   ],
   "bin": {
     "macclaw": "dist/cli/index.js"
